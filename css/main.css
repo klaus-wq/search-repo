@@ -1,0 +1,73 @@
+@import "https://necolas.github.io/normalize.css/latest/normalize.css";
+
+body {
+    background: rgb(235, 236, 243);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.error__text {
+    color: red;
+    margin-bottom: 6px;
+}
+
+.error__border {
+    border: 1px solid red;
+}
+
+.repo__container {
+    width: fit-content;
+    margin: auto;
+    padding: 20px;
+}
+
+.repo__title {
+    text-align: center;
+}
+
+.repo__input {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.search__input {
+    /* width: 80%; */
+    flex: 1;
+    height: 20px;
+    padding: 6px;
+    border: 1px solid rgb(187, 165, 209);
+}
+
+.search__button {
+    color: #fff;
+    background-color: rgb(101, 101, 224);
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.repo__block {
+    padding: 10px;
+    margin-bottom: 6px;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+}
+
+.repo__name {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.repo__author {
+    border-top: 1px solid black;
+    padding: 4px 0;
+}
+
+.repo__create {
+    margin-bottom: 4px;
+}
