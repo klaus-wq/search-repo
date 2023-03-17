@@ -9,8 +9,8 @@ search__input.onkeydown = function (key) {
 };
 
 function checkNameError() {
-    if (search__input.value.length === 0) {
-        name__error.textContent = "Введите название репозитория!";
+    if (search__input.value.length < 2) {
+        name__error.textContent = "Название репозитория должно быть не короче 2-ух символов!";
         search__input.classList.add("error__border");
         search__input.oninput = checkNameError;
         return true;
@@ -28,7 +28,8 @@ async function searchRepository(){
         return;
     }
 
-    const queryString = 'q=' + encodeURIComponent(search__input.value + " in:name");
+    // const queryString = 'q=' + encodeURIComponent("\"" + search__input.value + "\" in:name");
+    const queryString = 'q=' + encodeURIComponent(search__input.value + "in:name");
     let url = 'https://api.github.com/search/repositories?' + queryString + '&per_page=10';
     
     let repo__loading = document.createElement("div");
