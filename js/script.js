@@ -28,16 +28,27 @@ async function searchRepository(){
         return;
     }
 
-    // const queryString = 'q=' + encodeURIComponent("\"" + search__input.value + "\" in:name");
-    const queryString = 'q=' + encodeURIComponent(search__input.value + "in:name");
-    let url = 'https://api.github.com/search/repositories?' + queryString + '&per_page=10';
+    const queryString = 'q=' + encodeURIComponent("\"" + search__input.value + "\" in:name");
+    let url = `https://api.github.com/search/repositories?${queryString}&${per_page=10}`;
     
     let repo__loading = document.createElement("div");
     repo__loading.textContent = "Загрузка...";
     repo__list.appendChild(repo__loading);
     
-    let result = await fetch(url);
-    let json = await result.json();
+    // let result = await fetch(url);
+    // let json = await result.json();
+    let result = fetch(url).then(
+        successResponse => {
+            if (successResponse.status !== 200) {
+                return;
+            } else {
+                return successResponse.json();
+            }
+        }
+    );
+
+    let json = await result;
+
     repo__list.innerHTML = '';
 
     if (json.items.length === 0) {
